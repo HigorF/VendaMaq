@@ -1,6 +1,8 @@
+import { CarrinhoService } from './../../pedidos/shared/carrinho.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { ProdutosService } from '../shared/produtos-service.service';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -8,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./lista-produtos.page.scss'],
 })
 export class ListaProdutosPage implements OnInit {
-  produtos: Observable<any[]>;
-  categorias: Observable<any[]>;
-  categoriaSelecionada: string;
-  carrinhoPossuiItens: boolean = false;
+produtos: Observable<any[]>;
+categorias: Observable<any[]>;
+categoriaSelecionada: string;
+carrinhoPossuiItens: boolean = false;
 
   constructor(private router: Router,
               private produtosService: ProdutosService,
@@ -20,18 +22,17 @@ export class ListaProdutosPage implements OnInit {
   ngOnInit() {
     this.produtos = this.produtosService.getAll(null);
     this.categorias = this.produtosService.getcategoriasAll();
-    this.carrinhoPossuiItens.carrinhoPossuiItens().subscribe( (existemItens: boolean) => {
+    this.carrinhoService.carrinhoPossuiItens().subscribe( (existemItens: boolean) => {
       this.carrinhoPossuiItens = existemItens;
     })
   }
+//busca do produto pela categoria
   buscarProdutos(){
     this.produtos = this.produtosService.getAll(this.categoriaSelecionada);
   }
-
+//o clique no produto que leva para adição de quantidade.
   adicionarProduto(produtoKey: string){
     this.router.navigate(['pedido/carrinho/novo-item/', produtoKey]);
-   }
-
   }
 
-
+}

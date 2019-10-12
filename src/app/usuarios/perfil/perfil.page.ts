@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
-import { UsuariosService } from './../shared/usuarios.service';
 import { Component, OnInit } from '@angular/core';
+import { UsuariosService } from '../shared/usuarios-service.service';
 
 @Component({
   selector: 'app-perfil',

@@ -2,7 +2,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ToastService } from '../../core/shared/toast.service';
 import { Router } from '@angular/router';
-import { UsuariosService } from '../shared/usuarios.service';
+import { UsuariosService } from '../shared/usuarios-service.service';
 
 @Component({
   selector: 'app-criar-conta',

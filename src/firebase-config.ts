@@ -1,4 +1,4 @@
-export const firebaseConfig = {
+export const firebaseconfig = {
     apiKey: 'AIzaSyD5kATn6XHEoEaEBt2xGIEpL7WW52Hv8Hg',
     authDomain: 'vendamaq-2aa08.firebaseapp.com',
     databaseURL: 'https://vendamaq-2aa08.firebaseio.com',

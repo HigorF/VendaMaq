@@ -3,15 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
+import { IonicModule } from '@ionic/angular';
 
-
-import { FormItemPedidoPage } from './form-item-pedido.page';
-import { SharedModule } from 'src/app/core/shared/shared/shared/shared.module';
+import { Tab2Page } from './tab2.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: FormItemPedidoPage
+    component: Tab2Page
   }
 ];
 
@@ -19,9 +18,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    SharedModule,
+    IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FormItemPedidoPage]
+  declarations: [Tab2Page]
 })
-export class FormItemPedidoPageModule {}
+export class Tab2PageModule {}

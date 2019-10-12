@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UsuariosService } from '../shared/usuarios.service';
 import { ToastService } from '../../core/shared/toast.service';
+import { UsuariosService } from '../shared/usuarios-service.service';
 
 @Component({
   selector: 'app-esqueci-senha',

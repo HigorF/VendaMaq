@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ListaItemPedidoPage } from './lista-item-pedido.page';
-import { SharedModule } from 'src/app/core/shared/shared/shared.module';
+import { SharedModule } from 'src/app/core/shared/shared/shared/shared.module';
 
 const routes: Routes = [
   {

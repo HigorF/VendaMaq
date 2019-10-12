@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'form-item-pedido', loadChildren: './pedidos/form-item-pedido/form-item-pedido.module#FormItemPedidoPageModule' },
   { path: 'lista-item-pedido', loadChildren: './pedidos/lista-item-pedido/lista-item-pedido.module#ListaItemPedidoPageModule' },
   { path: 'lista-produto-pedido', loadChildren: './pedidos/lista-produto-pedido/lista-produto-pedido.module#ListaProdutoPedidoPageModule' },
-  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' }
+  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'tab2', loadChildren: './tab2/tab2.module#Tab2PageModule' }
 
   
 ];
