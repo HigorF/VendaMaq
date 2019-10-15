@@ -12,7 +12,7 @@ import { UsuariosService } from '../shared/usuarios-service.service';
 export class CriarContaPage implements OnInit {
   formCriarConta: FormGroup;
   constructor(private formBuilder: FormBuilder, private toast: ToastService, private router: Router,
-     private usuariosService: UsuariosService) { }
+              private usuariosService: UsuariosService) { }
 
   ngOnInit() {
    this.criarFormulario ();
@@ -41,5 +41,4 @@ export class CriarContaPage implements OnInit {
         });
     }
   }
-
 }
