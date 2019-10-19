@@ -11,3 +11,4 @@ export class FirebasePath {
 
 
 }
+//variáveis que puxam as categorias do banco

@@ -16,9 +16,11 @@ export class FormEnderecoPage implements OnInit {
   constructor(private enderecoService: EnderecoService, private formBuilder: FormBuilder,
               private route: ActivatedRoute, private toast: ToastService) { }
 
+              //método utilizado par visualizar os itens dos endereços
   ngOnInit() {
     this.criarFormulario();
     let key = this.route.snapshot.paramMap.get('key');
+    //caso não tenho um endereço cadastrado ele ira trazer o formulário
     if (key) {
       const subscribe = this.enderecoService.getByKey(key).subscribe( (endereco: any) => {
         subscribe.unsubscribe();
@@ -34,6 +36,7 @@ export class FormEnderecoPage implements OnInit {
     }
   }
 
+  //formulário para criação do endereço
   criarFormulario() {
     this.key = null;
     this.formEndereco = this.formBuilder.group({
@@ -45,6 +48,7 @@ export class FormEnderecoPage implements OnInit {
     });
   }
 
+  //caso um endereço seja válido, execute o toast de confirmção de endereço
   onSubmit() {
     if (this.formEndereco.valid) {
       let result: Promise<{}>;

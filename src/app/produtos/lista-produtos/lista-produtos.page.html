@@ -1,3 +1,4 @@
+
 <ion-header>
   <ion-toolbar color="dark">
     <ion-title>Produtos</ion-title>
@@ -7,14 +8,13 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-
+      <!--Para trazer os itens com filtro-->
       <ion-label>Categoria</ion-label>
       <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
         <ion-select-option value="" [selected]="true">Todas</ion-select-option>
         <ion-select-option *ngFor="let categoria of categorias | async" [value]="categoria.key">{{ categoria.nome }}
         </ion-select-option>
       </ion-select>
-
     </ion-item>
 
     <ion-item *ngFor="let produto of produtos | async" (click)="adicionarProduto(produto.key)">
@@ -22,9 +22,9 @@
         <img [src]="produto.img" />
       </ion-avatar>
       <ion-label text-wrap>
-        <h1>{{ produto.nome }}</h1>
-        <h2>{{ produto.categoriaNome }}</h2>
-        <pre text-wrap>{{ produto.descricao }}</pre>
+        <h3>{{ produto.nome }}</h3>
+        <h4>{{ produto.categoriaNome }}</h4>
+        <h5 text-wrap>{{ produto.descricao }}</h5>
         <!-- <span>{{ produto.preco | currency: 'BRL' }}</span> -->
         <!--<app-valor [valor]="produto.preco"></app-valor>-->
       </ion-label>

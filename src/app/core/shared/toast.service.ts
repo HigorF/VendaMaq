@@ -7,7 +7,7 @@ import { ToastController } from '@ionic/angular';
 export class ToastService {
 
   constructor(private toastController: ToastController) { }
-
+  //método que chama a mensagem após a confirmação (na parte de baixo do app)
   async show(mensagem: string){
     const toast = await this.toastController.create({
       message: mensagem,

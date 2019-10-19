@@ -7,7 +7,7 @@ import { AlertController } from '@ionic/angular';
 export class AlertService {
 
   constructor(private alertController: AlertController) { }
-
+  //método para chamar o método de exclusão
   async ShowConfirmaExclusao(nome: string, actionRemove:() =>void){
     const alert = await this.alertController.create({
       header: "Remover o item?",
