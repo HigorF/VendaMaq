@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProdutosService } from 'src/app/produtos/shared/produtos-service.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-item-pedido',
@@ -11,6 +12,7 @@ import { ProdutosService } from 'src/app/produtos/shared/produtos-service.servic
   styleUrls: ['./form-item-pedido.page.scss'],
 })
 export class FormItemPedidoPage implements OnInit {
+produtos: Observable<any[]>;
 produto: any = {}
 form: FormGroup;
 total: number = 0;
@@ -87,6 +89,11 @@ total: number = 0;
           this.router.navigate(['/tabs/produtos']);
         })
     }
+  }
+
+  //o clique no produto que leva para adição de quantidade.
+  adicionarProduto(produtoKey: string){
+    this.router.navigate(['pedido/carrinho/novo-item/', produtoKey]);
   }
 
 }

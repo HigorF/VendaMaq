@@ -22,11 +22,11 @@
         <img [src]="produto.img" />
       </ion-avatar>
       <ion-label text-wrap>
-        <h3>{{ produto.nome }}</h3>
+        <h2>{{ produto.nome }}</h2>
         <h4>{{ produto.categoriaNome }}</h4>
-        <h5 text-wrap>{{ produto.descricao }}</h5>
+        <!-- <h5 text-wrap>{{ produto.descricao }}</h5> -->
         <!-- <span>{{ produto.preco | currency: 'BRL' }}</span> -->
-        <!--<app-valor [valor]="produto.preco"></app-valor>-->
+        <app-valor [valor]="produto.preco"></app-valor>
       </ion-label>
     </ion-item>
   </ion-list>

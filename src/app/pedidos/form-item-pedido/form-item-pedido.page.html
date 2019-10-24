@@ -8,10 +8,14 @@
 </ion-header>
 
 <ion-content padding>
-  <h1>{{ produto.nome }}</h1>
-  <pre text-wrap>{{ produto.descricao }}</pre>
-  <app-valor [valor]="produto.preco"></app-valor>
-
+    <ion-item *ngFor="let produto of produtos" (click)="adicionarProduto(produto.key)">
+        <ion-avatar slot="start" *ngIf="produto.img">
+          <img [src]="produto.img" />
+        </ion-avatar>
+    </ion-item>
+          <h1>{{ produto.nome }}</h1>
+            <pre text-wrap>{{ produto.descricao }}</pre>
+              <app-valor [valor]="produto.preco"></app-valor>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <ion-item>
@@ -48,7 +52,7 @@
     </ion-item>
 
     <div margin-vertical>
-      <ion-button expand="block" type="submit">Adicionar ao carrinho</ion-button>
+      <ion-button expand="block" color="dark" type="submit">Adicionar ao carrinho</ion-button>
     </div>
   </form>
 </ion-content>
