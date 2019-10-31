@@ -47,6 +47,8 @@ total: number = 0;
 
   criarFormulario() {
     this.form = this.formBuilder.group({
+      filePath: [''],
+      img: [''],
       produtoKey: [''],
       produtoNome: [''],
       produtoDescricao: [''],

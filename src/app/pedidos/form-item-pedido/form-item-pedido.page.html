@@ -3,12 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Adicionando novo produto</ion-title>
+    <ion-title>Adicionando novo Item   <ion-icon name="construct"></ion-icon></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-item *ngFor="let produto of produtos" (click)="adicionarProduto(produto.key)">
+    <ion-item *ngFor="let produto of produtos | async">
         <ion-avatar slot="start" *ngIf="produto.img">
           <img [src]="produto.img" />
         </ion-avatar>
@@ -17,7 +17,7 @@
             <pre text-wrap>{{ produto.descricao }}</pre>
               <app-valor [valor]="produto.preco"></app-valor>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
+    
     <ion-item>
       <ion-label position="stacked">Quantidade</ion-label>
       <ion-input type="number" min="0" step="1" formControlName="quantidade" (ionChange)="executaCalcularTotal()"></ion-input>

@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
   formLogin: FormGroup;
   
   constructor(private formBuilder: FormBuilder, private usuariosService: UsuariosService,
-    private router: Router, private toast: ToastService) { }
+              private router: Router, private toast: ToastService) { }
 
   ngOnInit() {
     this.criarFormulario();
