@@ -8,11 +8,9 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-item *ngFor="let produto of produtos | async">
-        <ion-avatar slot="start" *ngIf="produto.img">
-          <img [src]="produto.img" />
-        </ion-avatar>
-    </ion-item>
+    <!-- <ion-avatar slot="start" *ngIf="produtoImg"> -->
+        <img [src]="produtoImg" />
+      <!-- </ion-avatar> -->
           <h1>{{ produto.nome }}</h1>
             <pre text-wrap>{{ produto.descricao }}</pre>
               <app-valor [valor]="produto.preco"></app-valor>

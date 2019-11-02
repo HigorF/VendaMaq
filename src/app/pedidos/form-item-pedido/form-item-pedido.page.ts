@@ -16,6 +16,8 @@ produtos: Observable<any[]>;
 produto: any = {}
 form: FormGroup;
 total: number = 0;
+/*varia´vel para receber a img*/
+produtoImg: string;
 
   constructor(private formBuilder: FormBuilder, 
               private route: ActivatedRoute,
@@ -31,6 +33,8 @@ total: number = 0;
       const subscribe = this.produtosService.getByKey(key).subscribe( (produto: any) => {
         subscribe.unsubscribe();
         this.produto = produto;
+        /*produtoImg é uma variável que foi criada para receber as informações da variável 'produto' e informando o caminho do banco*/
+        this.produtoImg = produto.img;
 
         this.form.patchValue({
           produtoKey: produto.key,
@@ -47,8 +51,6 @@ total: number = 0;
 
   criarFormulario() {
     this.form = this.formBuilder.group({
-      filePath: [''],
-      img: [''],
       produtoKey: [''],
       produtoNome: [''],
       produtoDescricao: [''],

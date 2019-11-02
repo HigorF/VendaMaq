@@ -53,6 +53,7 @@ export class CarrinhoService {
         return changes.map(m => ({key: m.payload.key, ...m.payload.val() }) )
       })
     )
+    
   }
 
   getTotalPedido(){

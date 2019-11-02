@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class ListaItemPedidoPage implements OnInit {
 itensPedido: Observable<any[]>;
 total: number;
+produtoImg: string;
 
   constructor(private carrinhoService: CarrinhoService, private alert: AlertService) { }
 
