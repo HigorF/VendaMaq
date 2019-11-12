@@ -9,7 +9,7 @@
   <ion-list>
     <ion-item>
       <!--Para trazer os itens com filtro-->
-      <ion-label class="font14">Categoria</ion-label>
+      <ion-label class="font14">Categorias</ion-label>
       <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
         <ion-select-option value="" [selected]="true">Todas</ion-select-option>
         <ion-select-option *ngFor="let categoria of categorias | async" [value]="categoria.key">{{ categoria.nome }}

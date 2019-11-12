@@ -18,10 +18,11 @@ form: FormGroup;
 total: number = 0;
 /*varia´vel para receber a img*/
 produtoImg: string;
+selectedRadioItem: any;
 
-  constructor(private formBuilder: FormBuilder, 
+  constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
-              private router: Router, 
+              private router: Router,
               private produtosService: ProdutosService,
               private carrinhoService: CarrinhoService,
               private toast: ToastService) { }
@@ -39,6 +40,7 @@ produtoImg: string;
         this.form.patchValue({
           produtoKey: produto.key,
           produtoNome: produto.nome,
+          produtoImg: produto.img,
           produtoDescricao: produto.descricao,
           produtoPreco: produto.preco,
           quantidade: 1
@@ -54,11 +56,21 @@ produtoImg: string;
       produtoKey: [''],
       produtoNome: [''],
       produtoDescricao: [''],
+      produtoImg:[''],
       produtoPreco: [''],
       quantidade: [''],
       observacao: [''],
+      voltagem: [''],
       total: ['']
     })
+  }
+
+  radioSelect(event) {
+    console.log("radioSelect",event.detail);
+    console.log(event.detail.value);
+    this.form.patchValue({voltagem:event.detail.value});
+
+    this.selectedRadioItem = event.detail;
   }
   //atualiza o valor total mostrado
   executaCalcularTotal(){

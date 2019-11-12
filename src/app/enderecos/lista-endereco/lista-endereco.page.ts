@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { EnderecoService } from '../shared/endereco.service';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-lista-endereco',

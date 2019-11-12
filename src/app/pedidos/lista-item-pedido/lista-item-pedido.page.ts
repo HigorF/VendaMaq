@@ -18,6 +18,7 @@ produtoImg: string;
   ngOnInit() {
     //trás os dados do carrinho, focando na key do produto
     this.itensPedido = this.carrinhoService.getAll();
+    
     this.getTotalPedido();
   }
 

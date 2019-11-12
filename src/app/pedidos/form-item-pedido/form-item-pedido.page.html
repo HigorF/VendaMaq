@@ -17,8 +17,8 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     
     <ion-item>
-      <ion-label position="stacked">Quantidade</ion-label>
-      <ion-input type="number" min="0" step="1" formControlName="quantidade" (ionChange)="executaCalcularTotal()"></ion-input>
+      <ion-label position="stacked" class="font13">Quantidade</ion-label>
+      <ion-input slot="end" type="number" min="0" step="1" formControlName="quantidade" (ionChange)="executaCalcularTotal()"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -37,15 +37,26 @@
         </ion-row>
       </ion-grid>
     </ion-item>
-      
-    <ion-item>
-      <ion-label position="stacked">Observação</ion-label>
-      <ion-textarea formControlName="observacao"></ion-textarea>
-    </ion-item>
-
+    <ion-list>
+      <ion-radio-group>
+        <ion-list-header>
+          <ion-label>Voltagem</ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label>127 V</ion-label>
+          <ion-radio formControlName="voltagem" slot="start" value="127" (ionSelect)="radioSelect($event)"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>220 V</ion-label>
+          <ion-radio formControlName="voltagem" slot="start" value="220" (ionSelect)="radioSelect($event)"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
     <ion-item text-end>
       <ion-label>
-        <h2>Total: <app-valor [valor]="total"></app-valor></h2>
+        <h2 class="font13">Total: <app-valor [valor]="total"></app-valor></h2>
       </ion-label>
     </ion-item>
 
