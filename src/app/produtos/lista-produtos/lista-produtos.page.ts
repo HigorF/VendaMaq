@@ -11,6 +11,7 @@ import { ProdutosService } from '../shared/produtos-service.service';
 })
 export class ListaProdutosPage implements OnInit {
 produtos: Observable<any[]>;
+produto: string; 
 categorias: Observable<any[]>;
 categoriaSelecionada: string;
 carrinhoPossuiItens: boolean = false;
@@ -32,7 +33,11 @@ carrinhoPossuiItens: boolean = false;
   }
 //o clique no produto que leva para adição de quantidade.
   adicionarProduto(produtoKey: string){
-    this.router.navigate(['pedido/carrinho/novo-item/', produtoKey]);
+    this.router.navigate(['pedido/carrinho/novo-item/',this,produtoKey]);
+  }
+
+  getProprietario(){
+    this.produtos = this.produtosService.getByCustomers(this.produto);
   }
 
 }

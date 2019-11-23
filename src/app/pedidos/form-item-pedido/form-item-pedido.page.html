@@ -38,19 +38,28 @@
       </ion-grid>
     </ion-item>
     <ion-list>
-      <ion-radio-group>
+      <!-- <ion-radio-group *ngIf="form.value.formvoltagemOp != 3 ">
+        <ion-list-header>
+          <ion-label>Voltagem</ion-label>
+        </ion-list-header>
+    
+        <ion-item *ngFor="let item of voltagemOp">
+          <ion-label> {{ item.desc }} </ion-label>
+          <ion-radio id="voltagem" formControlName="voltagem" [value]="item.valor" (click)="radioSelect($event)"></ion-radio>
+        </ion-item>
+      </ion-radio-group> -->
+      <ion-radio-group formControlName="voltagem">
         <ion-list-header>
           <ion-label>Voltagem</ion-label>
         </ion-list-header>
     
         <ion-item>
           <ion-label>127 V</ion-label>
-          <ion-radio formControlName="voltagem" slot="start" value="127" (ionSelect)="radioSelect($event)"></ion-radio>
-        </ion-item>
-    
+          <ion-radio slot="start" value="127 V" checked></ion-radio>
+        </ion-item>    
         <ion-item>
           <ion-label>220 V</ion-label>
-          <ion-radio formControlName="voltagem" slot="start" value="220" (ionSelect)="radioSelect($event)"></ion-radio>
+          <ion-radio slot="start" value="220 V"></ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>

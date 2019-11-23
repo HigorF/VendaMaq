@@ -15,6 +15,10 @@
         <h1>{{ item.produtoNome }}</h1>
         <pre *ngIf="item.produtoDescricao" text-wrap>{{ item.produtoDescricao }}</pre>
         <pre *ngIf="item.observacao" text-wrap>{{ item.observacao }}</pre>
+        <ion-item>
+        <ion-label>Voltagem do Produto</ion-label>
+        <pre *ngIf="item.voltagem" text-wrap> {{ item.voltagem }}</pre>
+      </ion-item>
         <p>Preço: <app-valor [valor]="item.produtoPreco"></app-valor></p>
         <p>Total: <app-valor [valor]="item.total"></app-valor></p>
 

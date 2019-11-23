@@ -19,6 +19,10 @@ total: number = 0;
 /*varia´vel para receber a img*/
 produtoImg: string;
 selectedRadioItem: any;
+voltagemOp: any[];
+formItemPedidoPage: Array<any>[] = [
+ // {valor: CarrinhoService.CATEGORIA_SEM_VOLTAGEM.SERRAS}
+];
 
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
@@ -42,11 +46,13 @@ selectedRadioItem: any;
           produtoNome: produto.nome,
           produtoImg: produto.img,
           produtoDescricao: produto.descricao,
+          produtoVoltagem: produto.voltagem,
           produtoPreco: produto.preco,
           quantidade: 1
         })
         this.executaCalcularTotal();
 
+        this.voltagemOp = this.carrinhoService.getVoltagem();
       })
     }
   }
@@ -56,7 +62,7 @@ selectedRadioItem: any;
       produtoKey: [''],
       produtoNome: [''],
       produtoDescricao: [''],
-      produtoImg:[''],
+      produtoImg: [''],
       produtoPreco: [''],
       quantidade: [''],
       observacao: [''],
@@ -65,13 +71,6 @@ selectedRadioItem: any;
     })
   }
 
-  radioSelect(event) {
-    console.log("radioSelect",event.detail);
-    console.log(event.detail.value);
-    this.form.patchValue({voltagem:event.detail.value});
-
-    this.selectedRadioItem = event.detail;
-  }
   //atualiza o valor total mostrado
   executaCalcularTotal(){
     this.atualizaTotal(this.form.value.quantidade);

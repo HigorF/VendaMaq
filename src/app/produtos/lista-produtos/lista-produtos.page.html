@@ -1,22 +1,31 @@
 
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title > <ion-icon name="construct"></ion-icon>  Produtos</ion-title>
+    <ion-title > <ion-icon name="construct"></ion-icon>  Produtos</ion-title> <br>
+    <ion-searchbar  [(ngModel)]="produto" type="text"  (keypress)="getProprietario()" placeholder="Pesquisar"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-    <ion-item>
-      <!--Para trazer os itens com filtro-->
-      <ion-label class="font14">Categorias</ion-label>
-      <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
-        <ion-select-option value="" [selected]="true">Todas</ion-select-option>
-        <ion-select-option *ngFor="let categoria of categorias | async" [value]="categoria.key">{{ categoria.nome }}
+  <ion-item>
+    <ion-col size="6">
+    <!--Para trazer os itens com filtro-->
+    <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
+        <ion-select-option slot="start" value="" [selected]="true">Categorias</ion-select-option>
+          <ion-select-option *ngFor="let categoria of categorias | async" [value]="categoria.key">{{ categoria.nome }}
+        </ion-select-option>
+    </ion-select>
+    </ion-col>
+    <ion-col>
+      <ion-select>
+          <ion-select-option slot="end" value="" [selected]="true">Ordenar por preço</ion-select-option>
+          <ion-select-option *ngFor="let produto of produtos | async" [value]="produto.key">{{ produto.preco }}
         </ion-select-option>
       </ion-select>
-    </ion-item>
-
+    </ion-col>
+  </ion-item>
+  
     <ion-item *ngFor="let produto of produtos | async" (click)="adicionarProduto(produto.key)">
       <ion-avatar slot="start" *ngIf="produto.img">
         <img [src]="produto.img" />

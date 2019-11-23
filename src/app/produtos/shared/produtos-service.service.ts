@@ -46,4 +46,13 @@ getByKey(key: string) {
     );
   }
 
+  getByCustomers(produtos: string) {
+    return this.db.list(FirebasePath.PRODUTOS, q => q.orderByChild('nome').startAt(produtos).endAt(produtos+'\uf88f'))
+      .snapshotChanges().pipe(
+        map(changes => {
+          return changes.map(m => ({ key: m.payload.key, ...m.payload.val() }))
+        })
+      );
+}
+
 }

@@ -8,6 +8,11 @@ import { FirebasePath } from 'src/app/core/firebase-path';
   providedIn: 'root'
 })
 export class CarrinhoService {
+  public static CATEGORIA_SEM_VOLTAGEM = {
+    BATERIA: 1,
+    SBATERIA: 2,
+    SERRAS: 3
+  };
 
   constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) { }
 
@@ -20,6 +25,13 @@ export class CarrinhoService {
   //insere o produto no carrinho
   insert(itemProduto: any) {
     return this.getCarrinhoProdutosRef().push(itemProduto);
+  }
+
+  getVoltagem(){
+    return [
+      {valor: '127', desc: '127 V' },
+      {valor: '220', desc: '220 V' }
+    ];
   }
 
   //faz a consulta dentro do carrinho para saber se tem algum produto lá
