@@ -44,10 +44,10 @@ formItemPedidoPage: Array<any>[] = [
         this.form.patchValue({
           produtoKey: produto.key,
           produtoNome: produto.nome,
-          produtoImg: produto.img,
           produtoDescricao: produto.descricao,
           produtoVoltagem: produto.voltagem,
           produtoPreco: produto.preco,
+          img: produto.img,
           quantidade: 1
         })
         this.executaCalcularTotal();
@@ -62,11 +62,11 @@ formItemPedidoPage: Array<any>[] = [
       produtoKey: [''],
       produtoNome: [''],
       produtoDescricao: [''],
-      produtoImg: [''],
       produtoPreco: [''],
       quantidade: [''],
       observacao: [''],
       voltagem: [''],
+      img: [''],
       total: ['']
     })
   }

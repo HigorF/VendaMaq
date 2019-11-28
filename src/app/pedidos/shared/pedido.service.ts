@@ -2,7 +2,6 @@ import { FirebasePath } from 'src/app/core/firebase-path';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-
 import { map } from 'rxjs/operators';
 import { CarrinhoService } from './carrinho.service';
 import { DatePipe } from '@angular/common';
@@ -14,7 +13,8 @@ export class PedidoService {
 
   public static TIPO_FORMA_PAGAMENTO = {
     DINHEIRO: 1,
-    CARTAO: 2
+    CARTAO: 2,
+    BOLETO: 3
   };
 
   public static STATUS = {
@@ -47,6 +47,7 @@ export class PedidoService {
             observacao: produto.observacao,
             produtoPreco: produto.produtoPreco,
             quantidade: produto.quantidade,
+            voltagem: produto.voltagem,
             total: produto.total
           };
         });
@@ -100,6 +101,8 @@ export class PedidoService {
         return 'Dinheiro';
       case PedidoService.TIPO_FORMA_PAGAMENTO.CARTAO:
         return 'Cartão de crédito/débito';
+        case PedidoService.TIPO_FORMA_PAGAMENTO.BOLETO:
+          return 'Boleto';
     }
   }
 

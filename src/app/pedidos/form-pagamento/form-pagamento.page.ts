@@ -20,7 +20,8 @@ export class FormPagamentoPage implements OnInit {
   total: number = 0;
   formasPagamento: Array<any> = [
     {valor: PedidoService.TIPO_FORMA_PAGAMENTO.DINHEIRO, descricao: 'Dinheiro'},
-    {valor: PedidoService.TIPO_FORMA_PAGAMENTO.CARTAO, descricao: 'Cartão de crédito/débito'}
+    {valor: PedidoService.TIPO_FORMA_PAGAMENTO.CARTAO, descricao: 'Cartão de crédito/débito'},
+    {valor: PedidoService.TIPO_FORMA_PAGAMENTO.BOLETO, descricao: 'Boleto'}
   ];
   enderecoSelecionado: string = this.MENSAGEM_ENDERECO_VAZIO;
 
@@ -34,6 +35,7 @@ export class FormPagamentoPage implements OnInit {
     const subscribe = this.carrinhoService.getTotalPedido().subscribe( (total: number) => {
       subscribe.unsubscribe();
       this.total = total;
+      
       this.form.patchValue({ total: total });
     })
   }
@@ -43,7 +45,9 @@ export class FormPagamentoPage implements OnInit {
       formPagamento: [''],
       trocoPara: [''],
       tipoCartao: [''],
+      quantasVezes: [''],
       enderecoEntrega: [''],
+      voltagem: [''],
       total: ['']
     })
   }

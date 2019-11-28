@@ -15,6 +15,7 @@ produto: string;
 categorias: Observable<any[]>;
 categoriaSelecionada: string;
 carrinhoPossuiItens: boolean = false;
+valor: any;
 
   constructor(private router: Router,
               private produtosService: ProdutosService,
@@ -22,6 +23,7 @@ carrinhoPossuiItens: boolean = false;
 
   ngOnInit() {
     this.produtos = this.produtosService.getAll(null);
+    this.valor = this.produtosService.getAll(null);
     this.categorias = this.produtosService.getcategoriasAll();
     this.carrinhoService.carrinhoPossuiItens().subscribe( (existemItens: boolean) => {
       this.carrinhoPossuiItens = existemItens;
@@ -38,6 +40,10 @@ carrinhoPossuiItens: boolean = false;
 
   getProprietario(){
     this.produtos = this.produtosService.getByCustomers(this.produto);
+  }
+
+  ordenarPreco() {
+    this.valor = this.produtosService.getAll('preco');
   }
 
 }

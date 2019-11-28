@@ -20,7 +20,7 @@
         <ion-item>
           <ion-label>Forma de pagamento</ion-label>
           <ion-select formControlName="formPagamento">
-            <ion-select-option value="" [selected]="true">- Escolha -</ion-select-option>
+            <ion-select-option value="" [selected]="true"> Escolha </ion-select-option>
             <ion-select-option *ngFor="let formPagamento of formasPagamento" [value]="formPagamento.valor">{{
               formPagamento.descricao }}</ion-select-option>
           </ion-select>
@@ -36,11 +36,25 @@
         <ion-item *ngIf="form.value.formPagamento == 2">
           <ion-label>Qual cartão</ion-label>
           <ion-select formControlName="tipoCartao">
-            <ion-select-option value="" [selected]="true">- Escolha -</ion-select-option>
+            <ion-select-option value="" [selected]="true"> Escolha </ion-select-option>
             <ion-select-option value="Crédito - Visa">Crédito - Visa</ion-select-option>
             <ion-select-option value="Crédito - Mastercard">Crédito - Mastercard</ion-select-option>
             <ion-select-option value="Débito - Visa">Débito - Visa</ion-select-option>
             <ion-select-option value="Débito - Mastercard">Débito - Mastercard</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!-- se for boleto -->
+        <ion-item *ngIf="form.value.formPagamento == 3">
+          <ion-label>Em quantas vezes</ion-label>
+          <ion-select formControlName="quantasVezes">
+            <ion-select-option value="" [selected]="true"> Escolha</ion-select-option>
+            <ion-select-option value="Boleto p/ - 30">30 dias</ion-select-option>
+            <ion-select-option value="Boleto p/ - 30,60">60 dias</ion-select-option>
+            <ion-select-option value="Boleto p/ - 30,60,90">90 dias</ion-select-option>
+            <ion-select-option value="Boleto p/ - 30,60,90,120">120 dias</ion-select-option>
+            <ion-select-option value="Boleto p/ - 30,60,90,120,150">150 dias</ion-select-option>
+            <ion-select-option value="Boleto p/ - 30,60,90,120,150,180">180 dias</ion-select-option>
+            <ion-select-option value="Boleto p/ - 30,60,90,120,150,180,210,240,270,300">300 dias</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-item-group>

@@ -15,8 +15,10 @@ export class ProdutosService {
     return this.db.list(FirebasePath.PRODUTOS, q => {
       if (categoriaKey) {
         return q.orderByChild('categoriaKey').equalTo(categoriaKey);
-      } else {
+      } else {//if (null) {
         return q.orderByChild('nome');
+      //} else {
+        //return q.orderByChild('preco');
       }
     }).snapshotChanges().pipe(
       map(changes => {

@@ -11,18 +11,25 @@
   <ion-item>
     <ion-col size="6">
     <!--Para trazer os itens com filtro-->
-    <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
-        <ion-select-option slot="start" value="" [selected]="true">Categorias</ion-select-option>
+    <ion-label>Categorias</ion-label>
+    <ion-select placeholder="Select One" (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
+        <ion-select-option value="" >Todas</ion-select-option>
           <ion-select-option *ngFor="let categoria of categorias | async" [value]="categoria.key">{{ categoria.nome }}
         </ion-select-option>
     </ion-select>
     </ion-col>
     <ion-col>
-      <ion-select>
-          <ion-select-option slot="end" value="" [selected]="true">Ordenar por preço</ion-select-option>
-          <ion-select-option *ngFor="let produto of produtos | async" [value]="produto.key">{{ produto.preco }}
-        </ion-select-option>
-      </ion-select>
+    <ion-label>Ordenar Preço</ion-label>
+        <ion-select placeholder="Select One">
+          <ion-select-option value="f">Menor para maior</ion-select-option>
+        <ion-select-option value="m">Maior para menor</ion-select-option>
+    </ion-select>
+            <!-- <ion-label>Ordenar preço do</ion-label>
+            <ion-select placeholder="Select One" (ionChange)="ordenarPreco()" [(ngModel)]="valor">
+              <ion-select-option *ngFor="let produto of produtos | async" [value]="produto">{{ produto.preco }}
+              </ion-select-option>
+              
+            </ion-select> -->
     </ion-col>
   </ion-item>
   
