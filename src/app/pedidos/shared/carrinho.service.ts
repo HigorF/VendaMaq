@@ -18,7 +18,8 @@ export class CarrinhoService {
 
   //conexão da rota para adicionar o produto, concatenando a rota do carrinho/id do usuário/e o produto
   getCarrinhoProdutosRef() {
-    const path = `${FirebasePath.CARRINHO}${this.afAuth.auth.currentUser.uid}/${FirebasePath.PRODUTOS}`;
+    // const path = `${FirebasePath.CARRINHO}${this.afAuth.auth.currentUser.uid}/${FirebasePath.PRODUTOS}`;
+    const path = `${FirebasePath.CARRINHO}/${FirebasePath.PRODUTOS}`;
     return this.db.list(path);
   }
 

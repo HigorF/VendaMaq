@@ -22,8 +22,7 @@ valor: any;
               private carrinhoService: CarrinhoService) { }
 
   ngOnInit() {
-    this.produtos = this.produtosService.getAll(null);
-    this.valor = this.produtosService.getAll(null);
+    this.produtos = this.produtosService.getAll(null,null);
     this.categorias = this.produtosService.getcategoriasAll();
     this.carrinhoService.carrinhoPossuiItens().subscribe( (existemItens: boolean) => {
       this.carrinhoPossuiItens = existemItens;
@@ -31,7 +30,7 @@ valor: any;
   }
 //busca do produto pela categoria
   buscarProdutos(){
-    this.produtos = this.produtosService.getAll(this.categoriaSelecionada);
+    this.produtos = this.produtosService.getAll(this.categoriaSelecionada,null);
   }
 //o clique no produto que leva para adição de quantidade.
   adicionarProduto(produtoKey: string){
@@ -43,7 +42,7 @@ valor: any;
   }
 
   ordenarPreco() {
-    this.valor = this.produtosService.getAll('preco');
+    this.produtos = this.produtosService.getAll(null, 'p');
   }
 
 }

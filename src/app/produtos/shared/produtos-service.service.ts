@@ -11,14 +11,14 @@ export class ProdutosService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getAll(categoriaKey: string = null) {
+  getAll(categoriaKey: string = null, preco: string = null) {
     return this.db.list(FirebasePath.PRODUTOS, q => {
       if (categoriaKey) {
         return q.orderByChild('categoriaKey').equalTo(categoriaKey);
-      } else {//if (null) {
+      } else if (preco) {
+        return q.orderByChild('preco');
+      } else {
         return q.orderByChild('nome');
-      //} else {
-        //return q.orderByChild('preco');
       }
     }).snapshotChanges().pipe(
       map(changes => {

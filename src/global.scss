@@ -24,3 +24,12 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.ion-color-lightgray {
+    --ion-color-base: var(--ion-color-lightgray);
+    --ion-color-base-rgb: var(--ion-color-lightgray-rgb);
+    --ion-color-contrast: var(--ion-color-lightgray-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-lightgray-contrast-rgb);
+    --ion-color-shade: var(--ion-color-lightgray-shade);
+    --ion-color-tint: var(--ion-color-lightgray-tint);
+  }

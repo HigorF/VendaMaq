@@ -11,9 +11,9 @@
   <ion-list>
     <ion-item *ngFor="let item of itensPedido | async">
       <ion-label text-wrap>
-        <ion-thumbnail slot="start" *ngIf="item.img">    
+        <!-- <ion-thumbnail slot="start" *ngIf="item.img">     -->
         <img [src]="item.img" />   
-        </ion-thumbnail>       
+        <!-- </ion-thumbnail>        -->
         <h1>{{ item.produtoNome }}</h1>
         <pre *ngIf="item.produtoDescricao" text-wrap>{{ item.produtoDescricao }}</pre>
         <pre *ngIf="item.observacao" text-wrap>{{ item.observacao }}</pre>

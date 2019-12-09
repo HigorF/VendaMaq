@@ -1,6 +1,7 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastService } from './../../core/shared/toast.service';
 import { CarrinhoService } from './../shared/carrinho.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProdutosService } from 'src/app/produtos/shared/produtos-service.service';
@@ -29,7 +30,8 @@ formItemPedidoPage: Array<any>[] = [
               private router: Router,
               private produtosService: ProdutosService,
               private carrinhoService: CarrinhoService,
-              private toast: ToastService) { }
+              private toast: ToastService,
+              private afAuth: AngularFireAuth) { }
 
   ngOnInit(){
     this.criarFormulario();
@@ -87,7 +89,7 @@ formItemPedidoPage: Array<any>[] = [
     qtd--;
     if(qtd <=0)
       qtd=1;
-    
+
     this.atualizaTotal(qtd);
   }
   //Recebe o preço do produto e realiza a multiplicação
@@ -96,19 +98,24 @@ formItemPedidoPage: Array<any>[] = [
     this.form.patchValue({quantidade:quantidade, total: this.total});
   }
   //inserindo produtos no carrito (spanish xd)
-  onSubmit(){
-    if (this.form.valid){
-      this.carrinhoService.insert(this.form.value)
-        .then( () => {
-          this.toast.show('Produto adicionado ao carrito com sucesso !');
-          this.router.navigate(['/tabs/produtos']);
-        })
-    }
+  onSubmit() {
+    this.afAuth.auth.onAuthStateChanged(user => {
+      if (!user) {
+        this.toast.show('Necessario efetuar Login ou Criar uma conta');
+        this.router.navigate(['/login']);
+      } else {
+          if  (this.form.valid) {
+            this.carrinhoService.insert(this.form.value)
+            .then( () => {
+              this.toast.show('Produto adicionado com sucesso');
+              this.router.navigate(['/tabs/produtos']);
+            });
+          }
+      }
+    });
   }
-
   //o clique no produto que leva para adição de quantidade.
-  adicionarProduto(produtoKey: string){
-    this.router.navigate(['pedido/carrinho/novo-item/', produtoKey]);
-  }
-
+  adicionarProduto(produtoKey: string) {
+      this.router.navigate(['pedido/carrinho/novo-item/', produtoKey]);
+  } 
 }

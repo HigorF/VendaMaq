@@ -48,7 +48,8 @@
           <ion-radio id="voltagem" formControlName="voltagem" [value]="item.valor" (click)="radioSelect($event)"></ion-radio>
         </ion-item>
       </ion-radio-group> -->
-      <ion-radio-group formControlName="voltagem">
+
+      <ion-radio-group formControlName="voltagem" [hidden]="produto.categoriaKey == '-LrW643Rpm6O7Edp8uyi'">
         <ion-list-header>
           <ion-label>Voltagem</ion-label>
         </ion-list-header>

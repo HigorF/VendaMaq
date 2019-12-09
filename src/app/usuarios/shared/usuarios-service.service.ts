@@ -84,4 +84,8 @@ export class UsuariosService {
     return mensagem;
   }
 
+  getAuth(){
+    return this.afAuth.auth;
+  }
+
 }

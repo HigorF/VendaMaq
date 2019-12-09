@@ -1,14 +1,14 @@
 
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title > <ion-icon name="construct"></ion-icon>  Produtos</ion-title> <br>
-    <ion-searchbar  [(ngModel)]="produto" type="text"  (keypress)="getProprietario()" placeholder="Pesquisar"></ion-searchbar>
+    <ion-title class="center" ><ion-icon name="construct"></ion-icon>  Produtos</ion-title> <br>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-  <ion-item>
+<ion-content color="" padding>
+    <ion-searchbar  [(ngModel)]="produto" type="text"  (keypress)="getProprietario()" placeholder="Pesquisar"></ion-searchbar>
+  <ion-list color="">
+  <ion-item color="">
     <ion-col size="6">
     <!--Para trazer os itens com filtro-->
     <ion-label>Categorias</ion-label>
@@ -19,21 +19,17 @@
     </ion-select>
     </ion-col>
     <ion-col>
-    <ion-label>Ordenar Preço</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Menor para maior</ion-select-option>
-        <ion-select-option value="m">Maior para menor</ion-select-option>
-    </ion-select>
-            <!-- <ion-label>Ordenar preço do</ion-label>
-            <ion-select placeholder="Select One" (ionChange)="ordenarPreco()" [(ngModel)]="valor">
-              <ion-select-option *ngFor="let produto of produtos | async" [value]="produto">{{ produto.preco }}
-              </ion-select-option>
+          
+            <ion-button color="dark" size="small"  (click)="ordenarPreco()">Ordenar Preço
+              <!-- <ion-select-option *ngFor="let produto of produtos | async" [value]="produto">{{ produto.preco }}
+              </ion-select-option>-->
               
-            </ion-select> -->
+            </ion-button>
+            
     </ion-col>
   </ion-item>
   
-    <ion-item *ngFor="let produto of produtos | async" (click)="adicionarProduto(produto.key)">
+    <ion-item *ngFor="let produto of produtos | async" (click)="adicionarProduto(produto.key)"> 
       <ion-avatar slot="start" *ngIf="produto.img">
         <img [src]="produto.img" />
       </ion-avatar>

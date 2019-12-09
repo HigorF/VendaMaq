@@ -15,7 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { firebaseconfig } from './../firebase-config';
 
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

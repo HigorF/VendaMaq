@@ -80,6 +80,15 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'sobre',
+    children: [
+      {
+        path: '',
+        loadChildren: '../sobre/sobre.module#SobrePageModule'
+      }
+    ]
+  },
+  {
     path: '',
     redirectTo: '/tabs/produtos',
     pathMatch: 'full'
